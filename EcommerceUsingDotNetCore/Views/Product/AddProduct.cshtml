@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ProductViewModal
+<form method="post" enctype="multipart/form-data">
+
+    Product Name <input type="text" asp-for="Pname" class="form-control" /><br />
+    Product Category
+    <select class="form-control" asp-for="Pcat">
+        <option>Electronics</option>
+        <option>Food</option>
+        <option>Clothes</option>
+        <option>Others</option>
+
+    </select><br />
+
+    Price <input type="text" asp-for="Price" class="form-control" /><br />
+    Image <input type="file" asp-for="Picture" class="form-control" /><br />
+    <input type="submit" value="save" class="btn btn-sm btn-info" />
+</form>
