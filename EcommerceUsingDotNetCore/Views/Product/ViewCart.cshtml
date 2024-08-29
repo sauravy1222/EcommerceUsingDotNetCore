@@ -22,8 +22,14 @@
                         <li class="list-group-item"> Price :@d.Price</li>
                     </ul>
                     <div class="card-body">
-                        <a asp-controller="Product" asp-action="ViewCart" asp-route-id="@d.Pid" class="btn btn-sm btn-warning">Add To Cart</a>
+                        <a asp-controller="Product" asp-action="ViewCart" asp-route-id="@d.Pid" class="btn btn-sm btn-warning">Place Order</a>
                     </div>
+
+                    <form asp-controller="Product" asp-action="DeleteToCart" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@d.Pid" />
+                        <button type="submit" class="btn btn-outline-primary btn-sm mt-2">Delete</button>
+                    </form>
+
                 </div>
             </div>
         }

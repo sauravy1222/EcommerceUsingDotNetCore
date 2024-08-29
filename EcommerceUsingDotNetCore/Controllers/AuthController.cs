@@ -93,6 +93,7 @@ namespace EcommerceUsingDotNetCore.Controllers
                 bool us=data.Email.Equals(log.Email) && DecryptedPassword(data.Password).Equals(log.Password);
                 if (us) {
                     HttpContext.Session.SetString("myuser",data.Email);
+                    HttpContext.Session.SetString("urole",data.Role);
                     return RedirectToAction("Index", "Product");
                 
                 }

@@ -107,11 +107,23 @@ namespace EcommerceUsingDotNetCore.Controllers
         public IActionResult ViewCart()
         {
             string sess = HttpContext.Session.GetString("myuser");
-            var data= db.carts.Where(X=>X.Suser.Equals(sess)).ToList();
+            var data = db.carts.Where(X => X.Suser.Equals(sess)).ToList();
             return View(data);
 
-
         }
+
+       [HttpPost]
+public IActionResult DeleteToCart(int id)
+{
+    var data = db.carts.Find(id);
+    if (data != null)
+    {
+        db.carts.Remove(data);
+        db.SaveChanges();
+    }
+    return RedirectToAction("ViewCart");
+}
+
 
 
     }
